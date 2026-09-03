@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-02",
+  "status": "architecture_owner_bootstrap",
+  "objective": "Keep table/columnar semantics separate from Tensor math, CUDA mechanisms, storage/network mechanics and product data meaning.",
+  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-columnar-data-semantic-owner.md"],
+  "current_focus": {"issue": 3, "status": "not_activated", "next_action": "After bootstrap integration, select a bounded consumer-backed column/table profile; implementation still requires an accepted spec."},
+  "parallel_governance": {"issue": 2, "status": "blocked_on_control_plane_mutation"},
+  "do_not": ["select cuDF/RAPIDS as semantic authority", "move generic Tensor math or CUDA primitives here", "build SQL/database/storage-engine policy", "claim implementation or performance from repository creation"]
+}

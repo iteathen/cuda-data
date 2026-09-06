@@ -1,19 +1,29 @@
 {
   "schema_version": 2,
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep table/columnar semantics separate from Tensor math, CUDA mechanisms, storage/network mechanics and product data meaning.",
-  "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-columnar-data-semantic-owner.md"],
-  "completed": {"issue": 1, "state": "ownership_bootstrap_integrated"},
+  "objective": "Keep table/columnar semantics separate from Tensor math, native CUDA mechanisms, reusable cross-domain algorithm/memory policy, storage/network mechanics and product data meaning.",
+  "authority": [
+    "AGENTS.md",
+    "docs/PROJECT_CHARTER.md",
+    "docs/specs/SPEC-0001-native-boundary-and-js-only-implementation.md",
+    "docs/decisions/ADR-0001-independent-columnar-data-semantic-owner.md"
+  ],
+  "completed": {
+    "ownership_bootstrap_issue": 1,
+    "repository_governance_issue": 2,
+    "repository_governance_state": "protected_main_aligned"
+  },
   "current_focus": {
     "issue": 3,
     "status": "consumer_selection_required",
-    "next_action": "Select one bounded consumer-backed column/table profile now that ownership is integrated. Define schema/nullability/material semantics and accept a contract before production implementation or provider selection."
+    "next_action": "Select one bounded consumer-backed column/table profile. Define schema/nullability/material semantics and accept a contract before production implementation or provider selection."
   },
-  "parallel_governance": {"issue": 2, "status": "main_unprotected_control_plane_alignment_open"},
   "do_not": [
     "select cuDF/RAPIDS as semantic authority",
-    "move generic Tensor math or CUDA primitives here",
+    "move generic Tensor math or native CUDA mechanisms here",
+    "move reusable reduce/scan/sort/map algorithm semantics into CUDA-JS merely because they run on GPU",
+    "claim generic cross-domain physical memory-management ownership",
     "build SQL/database/storage-engine policy",
     "claim implementation or performance from repository creation or completed governance"
   ]

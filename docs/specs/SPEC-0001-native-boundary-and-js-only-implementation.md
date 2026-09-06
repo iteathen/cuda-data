@@ -33,7 +33,9 @@ A missing native mechanism routes to CUDA-JS before any local workaround.
 
 CUDA-JS-Tensor owns generic Tensor mathematics. CUDA-IO owns reusable source/sink/storage semantics. CUDA-COMM owns reusable communication semantics.
 
-CUDA-JS owns native allocation/view/transfer/registered/mapped/managed/peer-memory mechanisms, compiler/operation resources and native provider integrations. Generic flat-buffer GPU primitives may be CUDA-JS-owned only when their semantics are genuinely consumer-neutral and independently justified.
+CUDA-JS owns native allocation/view/transfer/registered/mapped/managed/peer-memory mechanisms, compiler/operation resources and native provider integrations.
+
+A generic flat-buffer algorithm such as reduce, scan or sort does not become CUDA-JS-owned merely because multiple consumers need it. If its semantics are independently reusable across domains, it requires a natural JavaScript/TypeScript semantic/algorithm owner above CUDA-JS; CUDA-JS owns only the native mechanisms that realization consumes.
 
 ## Memory-policy boundary
 

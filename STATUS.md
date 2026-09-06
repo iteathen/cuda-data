@@ -18,10 +18,10 @@ Select one bounded consumer-backed column/table profile with explicit schema/nul
 
 Generic Tensor mathematics stays CUDA-JS-Tensor. CUDA-JS owns native memory/execution/provider mechanisms only. Generic reduce/scan/sort/map algorithm semantics do not become CUDA-JS-owned merely because multiple GPU consumers need them; an independently reusable algorithm layer would require a JavaScript/TypeScript owner above CUDA-JS. Storage/network mechanics stay with their own owners, and graph algorithms stay in `cuda-graph-analytics`.
 
-Generic cross-domain physical memory-management policy likewise requires its own JS/TS owner if independently justified; CUDA-DATA retains only table/column semantic lifetimes and data-specific chunk/out-of-core policy.
+`iteathen/CUDA-MM` is now the accepted **reserved architecture/ownership home** for reusable cross-domain physical memory-management policy. CUDA-MM is not a current CUDA-DATA dependency: production CUDA-MM remains gated by CUDA-MM #3/#4 and a separately accepted bounded contract. CUDA-DATA retains table/column semantic lifetimes, schema/material meaning and data-specific chunk/out-of-core policy; it may later project only generic physical constraints if CUDA-MM is activated.
 
 ## Governance
 
 Protected-main and repository-setting alignment is complete. No local CI workflow currently exists, so no required status-check name is fabricated.
 
-No roadmap entry, provider availability, repository creation or completed governance bootstrap is production implementation authority.
+No roadmap entry, provider availability, CUDA-MM repository existence or completed governance bootstrap is production implementation authority.

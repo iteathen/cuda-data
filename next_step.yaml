@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated": "2026-09-06",
   "status": "architecture_owner_integrated_consumer_activation_gated",
-  "objective": "Keep table/columnar semantics separate from Tensor math, native CUDA mechanisms, reusable cross-domain algorithm/memory policy, storage/network mechanics and product data meaning.",
+  "objective": "Keep table/columnar semantics separate from Tensor math, native CUDA mechanisms, reusable cross-domain algorithms, reserved CUDA-MM physical policy, storage/network mechanics and product data meaning.",
   "authority": [
     "AGENTS.md",
     "docs/PROJECT_CHARTER.md",
@@ -19,12 +19,18 @@
     "status": "consumer_selection_required",
     "next_action": "Select one bounded consumer-backed column/table profile. Define schema/nullability/material semantics and accept a contract before production implementation or provider selection."
   },
+  "optional_physical_policy_owner": {
+    "repository": "iteathen/CUDA-MM",
+    "status": "reserved_architecture_owner_production_not_activated",
+    "activation": "CUDA-MM #3/#4 plus a separately accepted bounded production contract",
+    "rule": "CUDA-DATA retains table/column semantic lifetimes and data-specific chunk/out-of-core meaning; project only domain-neutral physical constraints if CUDA-MM is later activated."
+  },
   "do_not": [
     "select cuDF/RAPIDS as semantic authority",
     "move generic Tensor math or native CUDA mechanisms here",
     "move reusable reduce/scan/sort/map algorithm semantics into CUDA-JS merely because they run on GPU",
-    "claim generic cross-domain physical memory-management ownership",
+    "implement generic cross-domain physical memory-management policy here; CUDA-MM is the reserved owner if activated",
     "build SQL/database/storage-engine policy",
-    "claim implementation or performance from repository creation or completed governance"
+    "claim implementation or performance from repository creation, CUDA-MM existence or completed governance"
   ]
 }

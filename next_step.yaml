@@ -1,10 +1,20 @@
 {
-  "schema_version": 1,
-  "updated": "2026-09-02",
-  "status": "architecture_owner_bootstrap",
+  "schema_version": 2,
+  "updated": "2026-09-05",
+  "status": "architecture_owner_integrated_consumer_activation_gated",
   "objective": "Keep table/columnar semantics separate from Tensor math, CUDA mechanisms, storage/network mechanics and product data meaning.",
   "authority": ["AGENTS.md", "docs/PROJECT_CHARTER.md", "docs/decisions/ADR-0001-independent-columnar-data-semantic-owner.md"],
-  "current_focus": {"issue": 3, "status": "not_activated", "next_action": "After bootstrap integration, select a bounded consumer-backed column/table profile; implementation still requires an accepted spec."},
-  "parallel_governance": {"issue": 2, "status": "blocked_on_control_plane_mutation"},
-  "do_not": ["select cuDF/RAPIDS as semantic authority", "move generic Tensor math or CUDA primitives here", "build SQL/database/storage-engine policy", "claim implementation or performance from repository creation"]
+  "completed": {"issue": 1, "state": "ownership_bootstrap_integrated"},
+  "current_focus": {
+    "issue": 3,
+    "status": "consumer_selection_required",
+    "next_action": "Select one bounded consumer-backed column/table profile now that ownership is integrated. Define schema/nullability/material semantics and accept a contract before production implementation or provider selection."
+  },
+  "parallel_governance": {"issue": 2, "status": "main_unprotected_control_plane_alignment_open"},
+  "do_not": [
+    "select cuDF/RAPIDS as semantic authority",
+    "move generic Tensor math or CUDA primitives here",
+    "build SQL/database/storage-engine policy",
+    "claim implementation or performance from repository creation or completed governance"
+  ]
 }

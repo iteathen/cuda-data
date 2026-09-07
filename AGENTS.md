@@ -19,3 +19,15 @@ No RAPIDS/cuDF provider is selected by repository creation. Vendor APIs are poss
 Direct native/FFI/CUDA C++/PTX/private imports or duplicated lower lifecycle are ownership-gap signals. Maintained code, when authorized, is JavaScript/ESM plus accepted restricted Device-JS; no Python/native escape path without a successor decision.
 
 Repository creation authorizes no production API/source. #3 is the activation roadmap; #2 owns repository controls. Accepted bounded specs are required before implementation.
+
+## Execution efficiency / mutation hygiene
+
+These are **default suggestions, not mandatory sequencing rules**. Use them when they reduce uncertainty, duplication, or avoidable mutation risk. Current validated information and repository-specific authority can justify a different sequence; do not perform a step merely for procedural completeness.
+
+- **Read before write when the read can materially improve the decision.** Reuse prior validated context when its assumptions still hold. A safe, isolated, informative write can itself be research.
+- **Prefer one ownership unit at a time when that keeps reasoning and review clear.** Cross ownership boundaries deliberately when the real problem or solution spans them.
+- **Introduce new mechanisms when they solve a real problem.** Avoid gratuitous machinery, not invention.
+- **When state is unexpected, stop and assess before acting.** Then choose whether to preserve it, repair forward, or roll back; rollback is not the default.
+- **Qualify proportionally.** Validate before propagation when remaining uncertainty would become meaningfully more expensive. For simple, well-understood, mechanical changes, propagate then qualify once when that is cheaper and equally sound.
+- **Reuse valid evidence and established conclusions.** Do not repeat research or validation solely to satisfy process form.
+- Prefer the path that uses available information to reduce uncertainty and rework at reasonable cost while preserving correctness, ownership, recoverability, and honest evidence.
